@@ -27,15 +27,15 @@ public class Main {
         return year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
     }
     static void printVersion(int os, int releaseYear) {
-        int currentYear = 2015;
+        int currentYear = LocalDate.now().getYear();
         if (os == 0) {
-            if (releaseYear > currentYear) {
+            if (releaseYear < currentYear) {
                 System.out.println("Установите облегченную версию приложения для iOS по ссылке");
             } else {
                 System.out.println("Установите версию приложения для iOS по ссылке");
             }
         } else if (os == 1) {
-            if (releaseYear > currentYear) {
+            if (releaseYear < currentYear) {
                 System.out.println("Установите облегченную версию приложения для Android по ссылке");
             } else {
                 System.out.println("Установите версию приложения для Android по ссылке");
@@ -53,7 +53,6 @@ public class Main {
             return 3;
         } else {
             return -1;
-
         }
     }
 }
